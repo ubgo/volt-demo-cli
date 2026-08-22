@@ -10,3 +10,15 @@ volt-demo-cli --version
 ```
 
 Released with `volt release . v0.1.0`. This repo doubles as a regression fixture: volt changes are tested against it.
+
+## Skills — served by the binary itself
+
+`skills/` holds this project's SKILL.md agent skills. `volt gen skills` wrote the [`voltkit/skillcmd`](https://github.com/khanakia/voltkit/tree/main/skillcmd) wiring (`skills_gen.go`), and every release attaches `skills_vX.Y.Z.tar.gz` — the bundle the released binary fetches (checksum-verified, cached per version) so its skills always match its version:
+
+```sh
+volt-demo-cli skills list              # what this exact version ships
+volt-demo-cli skills get demo-usage    # print a skill
+volt-demo-cli skills check <dir>       # is an installed copy current for THIS binary?
+```
+
+Agent harness installation stays `npx skills add khanakia/volt-demo-cli` — the binary only serves and freshness-checks.
