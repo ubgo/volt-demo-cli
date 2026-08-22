@@ -1,0 +1,5 @@
+binary: volt-demo-cli
+ldflags:
+  vars:
+    main.version: "{{.Version}}"
+    main.commit: "{{.ShortCommit}}"
