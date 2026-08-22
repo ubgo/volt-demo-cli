@@ -6,6 +6,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 )
 
 // Stamped by volt via .volt.yml ldflags.vars; "dev" from source builds.
@@ -15,6 +16,18 @@ var (
 )
 
 func main() {
+	// `skills` subcommand: serves this project's published SKILL.md files,
+	// always matching this binary's version (voltkit/skillcmd; wiring in
+	// skills_gen.go is volt-generated). Dispatched before flag parsing —
+	// it owns its own args.
+	if len(os.Args) > 1 && os.Args[1] == "skills" {
+		cmd := newSkillsCommand()
+		cmd.SetArgs(os.Args[2:])
+		if err := cmd.Execute(); err != nil {
+			os.Exit(1)
+		}
+		return
+	}
 	showVersion := flag.Bool("version", false, "print version and exit")
 	flag.Parse()
 	if *showVersion {
