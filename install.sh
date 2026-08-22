@@ -3,7 +3,7 @@
 #
 # Regenerate:  volt gen
 # To change:   edit .volt.yml, or the template in volt itself — edits here are lost.
-# volt:hash 3fc6a64b2bcc
+# volt:hash 098b026d1d3b
 # volt-demo-cli installer for macOS / Linux.
 #
 # Usage:
@@ -54,7 +54,13 @@ curl -fsSL -o "${tmp}/${ASSET}" "${BASE}/${ASSET}"
 curl -fsSL -o "${tmp}/checksums.txt" "${BASE}/checksums.txt"
 
 # Verify BEFORE installing — never pipe an unverified binary into PATH.
-(cd "$tmp" && grep " ${ASSET}\$" checksums.txt | sha256sum -c - >/dev/null) || {
+# sha256sum is coreutils; stock macOS ships only shasum — support both.
+if command -v sha256sum >/dev/null 2>&1; then
+  SUMCHECK="sha256sum -c -"
+else
+  SUMCHECK="shasum -a 256 -c -"
+fi
+(cd "$tmp" && grep " ${ASSET}\$" checksums.txt | $SUMCHECK >/dev/null) || {
   echo "checksum verification FAILED for ${ASSET} — refusing to install" >&2; exit 1; }
 
 tar xzf "${tmp}/${ASSET}" -C "$tmp"
