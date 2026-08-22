@@ -3,7 +3,7 @@ module github.com/khanakia/volt-demo-cli
 go 1.26.4
 
 require (
-	github.com/khanakia/voltkit/skillcmd v0.0.0-20260822111637-d317986f3254
+	github.com/khanakia/voltkit/skillcmd v0.1.0
 	github.com/spf13/cobra v1.10.2
 )
 
