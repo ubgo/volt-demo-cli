@@ -1,10 +1,10 @@
-module github.com/khanakia/volt-demo-cli
+module github.com/ubgo/volt-demo-cli
 
 go 1.26.4
 
 require (
-	github.com/khanakia/voltkit/skillcmd v0.1.0
 	github.com/spf13/cobra v1.10.2
+	github.com/ubgo/voltkit/skillcmd v0.2.0
 )
 
 require (

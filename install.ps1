@@ -6,11 +6,11 @@
 # volt-demo-cli installer for Windows (PowerShell).
 #
 # Usage:
-#   irm https://raw.githubusercontent.com/khanakia/volt-demo-cli/main/install.ps1 | iex
+#   irm https://raw.githubusercontent.com/ubgo/volt-demo-cli/main/install.ps1 | iex
 #   $env:VERSION="v1.2.0"; irm ... | iex     # pin a version
 $ErrorActionPreference = "Stop"
 
-$Repo   = "khanakia/volt-demo-cli"
+$Repo   = "ubgo/volt-demo-cli"
 $Binary = "volt-demo-cli"
 $InstallDir = if ($env:INSTALL_DIR) { $env:INSTALL_DIR } else { Join-Path $env:LOCALAPPDATA $Binary }
 $Version    = if ($env:VERSION) { $env:VERSION } else { "" }

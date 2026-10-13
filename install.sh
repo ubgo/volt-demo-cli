@@ -7,12 +7,12 @@
 # volt-demo-cli installer for macOS / Linux.
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/khanakia/volt-demo-cli/main/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/ubgo/volt-demo-cli/main/install.sh | sh
 #   VERSION=v1.2.0 curl -fsSL ... | sh        # pin a version
 #   INSTALL_DIR=~/.local/bin curl -fsSL ... | sh   # no sudo needed
 set -eu
 
-REPO="khanakia/volt-demo-cli"
+REPO="ubgo/volt-demo-cli"
 BINARY="volt-demo-cli"
 INSTALL_DIR="${INSTALL_DIR:-/usr/local/bin}"
 VERSION="${VERSION:-}"

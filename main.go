@@ -1,5 +1,5 @@
 // Command volt-demo-cli is the single-CLI-repo demo for volt
-// (github.com/khanakia/voltkit): one main package at the repo root, bare
+// (github.com/ubgo/voltkit): one main package at the repo root, bare
 // vX.Y.Z tags, generated workflows and install scripts.
 package main
 
